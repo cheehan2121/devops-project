@@ -1,7 +1,7 @@
 import sys, os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'hal'))
 import intruder_detected
-import keypad
+
 import time
 from threading import Thread
 import hal_led as led
@@ -41,7 +41,7 @@ def main():
     #threadintrusion =Thread(target=alarmsound())
     #threadintrusion.start()
     #intruder_detected.alarmstart()
-    keypad.test()
+
 
 if __name__ == '__main__':
     main()
