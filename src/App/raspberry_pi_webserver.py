@@ -2,7 +2,6 @@ import time
 
 import RPi.GPIO as GPIO
 from flask import Flask, render_template
-
 from hal import hal_led as led
 from hal import hal_input_switch as input_switch
 from hal import hal_dc_motor as motor
