@@ -9,15 +9,18 @@ import time
 def alarmsound():
 
     while(True):
-        print(detect.get_distance())
-        print(lock.read_slide_switch())
+        #print(detect.get_distance())
+        #print(lock.read_slide_switch())
         #switch to the right is 0 to the left is 1
         #1 is lock 0 is unlock
         if(detect.get_distance()>10):
             if(lock.read_slide_switch()==1):
                 print("intruder detected")
-                alarm.short_beep(1)
+                #alarm.short_beep(1)
 
 def alarmstart():
+    global Run_Multithread
+
+    Run_Multithread = True
     threadintrusion = Thread(target=alarmsound)
     threadintrusion.start()

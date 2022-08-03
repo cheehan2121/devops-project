@@ -32,6 +32,9 @@ def key_pressed(key):
     time.sleep(0.2)
 
 def test():
+    global Run_Multithread
+
+    Run_Multithread = True
     keypad.init(key_pressed)
     keypad_thread = Thread(target=keypad.get_key)
     keypad_thread.start()
