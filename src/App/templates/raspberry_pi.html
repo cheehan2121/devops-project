@@ -10,7 +10,9 @@
 	  <h1>{{ title }}</h1>
       <h2>Input Switch:  {{ button }}</h2>
       <h2>Ultrasonic Sensor Distance:  {{ usonic_dist }}</h2>
-
+      <h2>Humidity: {{ Humidity }}</h2>
+      <h2>Temperature: {{ Temperature }}</h2>
+      <h2>Moisture status: {{ Moisture_status }}</h2>
 
 
 <table>
@@ -19,7 +21,7 @@
     <th>Control</th>
   </tr>
   <tr>
-      <td>LED</td>
+      <td>Lights</td>
     <td>
         <form action="/action_page.php" method="get">
             <button type="submit" formaction="/ledRed/off">Off</button>
@@ -29,7 +31,7 @@
 
   </tr>
   <tr>
-    <td>DC Motor</td>
+    <td>Ceiling fan</td>
     <td>
         <form action="/action_page.php" method="get">
             <button type="submit" formaction="/motor/off">Off</button>
@@ -59,7 +61,6 @@
   </tr>
 
 </table>
-
 
 
    </body>

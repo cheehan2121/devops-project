@@ -2,6 +2,7 @@ import sys, os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'hal'))
 import intruder_detected
 import keypad
+import RFID
 import time
 from threading import Thread
 import hal_led as led
@@ -31,6 +32,7 @@ def main():
     lcd.lcd_display_string("Template", 2)
     intruder_detected.alarmstart()
     keypad.test()
+    RFID.main()
 
 if __name__ == '__main__':
     main()
