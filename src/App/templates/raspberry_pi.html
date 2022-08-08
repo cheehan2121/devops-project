@@ -9,7 +9,7 @@
    <body>
 	  <h1>{{ title }}</h1>
       <h2>Input Switch:  {{ button }}</h2>
-      <h2>Ultrasonic Sensor Distance:  {{ usonic_dist }}</h2>
+      <h2>Door status:  {{ usonic_dist }}</h2>
       <h2>Humidity: {{ Humidity }}</h2>
       <h2>Temperature: {{ Temperature }}</h2>
       <h2>Moisture status: {{ Moisture_status }}</h2>
@@ -42,11 +42,11 @@
   </tr>
 
   <tr>
-    <td>Servo Motor</td>
+    <td>Door</td>
     <td>
         <form action="/action_page.php" method="get">
-            <button type="submit" formaction="/servo/off">Anti-Clockwise</button>
-            <button type="submit" formaction="/servo/on">Clockwise</button>
+            <button type="submit" formaction="/servo/off">Unlock</button>
+            <button type="submit" formaction="/servo/on">Lock</button>
         </form>
     </td>
   </tr>

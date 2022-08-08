@@ -42,7 +42,7 @@ def action(deviceName, action):
 
     elif deviceName == 'servo':
         if action == "on":
-            servo.set_servo_position(180)
+            servo.set_servo_position(90)
         elif action == "off":
             servo.set_servo_position(0)
 
@@ -72,8 +72,10 @@ def action(deviceName, action):
         status="Dry"
     else:
         status="Wet"
-
-
+    if buttonSts==0:
+        buttonSts="unlocked"
+    else:
+        buttonSts = "locked"
     if usonic_dist<10:
         dis="open"
     else:
@@ -91,6 +93,7 @@ def action(deviceName, action):
 
 
 if __name__ == "__main__":
+#def webserver:
     led.init()
     input_switch.init()
     motor.init()
@@ -99,5 +102,5 @@ if __name__ == "__main__":
     temp_humid_sensor.init()
     moisture_sensor.init()
 
-    #Run Python Flask Web Server
+    # Run Python Flask Web Server
     app.run(host='192.168.0.100', port=80, debug=True)

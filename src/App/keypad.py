@@ -3,7 +3,9 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'hal'))
 
 import hal_keypad as keypad
 import hal_servo as servo
+import hal_lcd as LCD
 from threading import Thread
+
 import time
 
 password=[]
@@ -12,12 +14,14 @@ password2 = [2,3,4,5]
 password3 = [3,4,5,6]
 password4 = [4,5,6,7]
 def key_pressed(key):
-
+    lcd = LCD.lcd()
     password.append(key)
     print(password)
     if len(password) == len(password1):
         if password == password1:
+            lcd.lcd_clear()
             print("Access granted")
+            lcd.lcd_display_string("Access granted")
             servo.set_servo_position(90)
         if password == password2:
             print("Access granted")

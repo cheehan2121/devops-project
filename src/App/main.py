@@ -11,7 +11,7 @@ import hal_servo as servo
 import hal_usonic as detect
 import hal_buzzer as alarm
 import hal_input_switch as lock
-
+import raspberry_pi_webserver as web
 
 
 def main():
@@ -20,7 +20,6 @@ def main():
 
     Run_Multithread = True
 
-
     lock.init()
     detect.init()
     alarm.init()
@@ -28,11 +27,12 @@ def main():
     lcd = LCD.lcd()
     servo.init()
     lcd.lcd_clear()
-    lcd.lcd_display_string("Mini-Project", 1)
-    lcd.lcd_display_string("Template", 2)
+    #lcd.lcd_display_string("Template", 2)
     intruder_detected.alarmstart()
     keypad.test()
     RFID.main()
+    #web.webserver()
+
 
 if __name__ == '__main__':
     main()
