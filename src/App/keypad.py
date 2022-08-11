@@ -17,28 +17,38 @@ def key_pressed(key):
     lcd = LCD.lcd()
     password.append(key)
     print(password)
+
+    if len(password) != len(password1):
+        lcd.lcd_display_string("Press password:", 1)
+    if len(password)==1:
+        lcd.lcd_display_string("*", 2)
+    if len(password) == 2:
+        lcd.lcd_display_string("**", 2)
+    if len(password)==3:
+        lcd.lcd_display_string("***", 2)
+
     if len(password) == len(password1):
         if password == password1:
             lcd.lcd_clear()
             print("Access granted")
-            lcd.lcd_display_string("Access granted")
+            lcd.lcd_display_string("Access granted  ")
             servo.set_servo_position(90)
-        if password == password2:
-            print("Access granted")
+        elif password == password2:
+            print("Access granted  ")
             servo.set_servo_position(90)
-        if password == password3:
-            print("Access granted")
+        elif password == password3:
+            print("Access granted  ")
             servo.set_servo_position(90)
-        if password == password4:
-            print("Access granted")
+        elif password == password4:
+            print("Access granted  ")
             servo.set_servo_position(90)
+        else:
+            lcd.lcd_display_string("Access denied  ")
         password.clear()
-    time.sleep(0.2)
+
 
 def test():
-    global Run_Multithread
 
-    Run_Multithread = True
     keypad.init(key_pressed)
     keypad_thread = Thread(target=keypad.get_key)
     keypad_thread.start()

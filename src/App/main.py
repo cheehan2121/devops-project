@@ -16,23 +16,20 @@ import raspberry_pi_webserver as web
 
 def main():
     #initialization of HAL modules
-    global Run_Multithread
-
-    Run_Multithread = True
 
     lock.init()
     detect.init()
     alarm.init()
     led.init()
-    lcd = LCD.lcd()
+    lcd=LCD.lcd()
+    lcd.lcd_display_string("Press password",1)
+    lcd.lcd_display_string("or keycard:",2)
+    time.sleep(2)
     servo.init()
-    lcd.lcd_clear()
-    #lcd.lcd_display_string("Template", 2)
     intruder_detected.alarmstart()
     keypad.test()
-    RFID.main()
-    #web.webserver()
-
+    RFID.test()
+    #web.main()
 
 if __name__ == '__main__':
     main()

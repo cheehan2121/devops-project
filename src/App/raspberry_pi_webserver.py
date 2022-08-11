@@ -42,9 +42,9 @@ def action(deviceName, action):
 
     elif deviceName == 'servo':
         if action == "on":
-            servo.set_servo_position(90)
-        elif action == "off":
             servo.set_servo_position(0)
+        elif action == "off":
+            servo.set_servo_position(90)
 
 
     elif deviceName == 'sensor':
@@ -90,10 +90,7 @@ def action(deviceName, action):
     }
 
     return render_template('raspberry_pi.html', **templateData)
-
-
-if __name__ == "__main__":
-#def webserver:
+def main():
     led.init()
     input_switch.init()
     motor.init()
@@ -104,3 +101,6 @@ if __name__ == "__main__":
 
     # Run Python Flask Web Server
     app.run(host='192.168.0.100', port=80, debug=True)
+
+if __name__ == "__main__":
+    main()
