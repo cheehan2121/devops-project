@@ -38,15 +38,22 @@ def key_pressed(key):
             return True
         elif password == password2:
             print("Access granted  ")
+            lcd.lcd_display_string("Access granted  ")
             servo.set_servo_position(90)
+            return True
         elif password == password3:
             print("Access granted  ")
+            lcd.lcd_display_string("Access granted  ")
             servo.set_servo_position(90)
+            return True
         elif password == password4:
             print("Access granted  ")
+            lcd.lcd_display_string("Access granted  ")
             servo.set_servo_position(90)
+            return True
         else:
             lcd.lcd_display_string("Access denied  ")
+            return "Fail"
         password.clear()
 
 def test():
