@@ -18,25 +18,21 @@ def main():
         id = str(id)
 
         print("RFID card ID = " + id)
+        #if id == "None":
+            #servo.set_servo_position(0)
 
 
-
-        if id == '854655479803' and lock.read_slide_switch()==1:   #RFID key id
+        if id == '715068059412' and lock.read_slide_switch()==1:   #RFID key id
             lcd.lcd_clear()
             lcd.lcd_display_string("Acess granted  ",1)
             time.sleep(2)
             lcd.lcd_clear()
             servo.set_servo_position(90)
-
-
-
-        if id!="None" and id!= "854655479803" and lock.read_slide_switch()==1:
+            time.sleep(3)
+        if id!="None" and id!= "715068059412" and lock.read_slide_switch()==1:
             lcd.lcd_clear()
             lcd.lcd_display_string("Access denied",1)
             lcd.lcd_clear()
-            servo.set_servo_position(0)
-
-
 
 
 def test():

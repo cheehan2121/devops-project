@@ -14,7 +14,7 @@ def alarmsound():
         #if id!=None or id!='1052230762465':
             if(detect.get_distance()<10):
                 print("intruder detected")
-                #alarm.short_beep(1)
+                alarm.short_beep(1)
 
 def alarmstart():
 

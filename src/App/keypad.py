@@ -20,12 +20,14 @@ def key_pressed(key):
 
     if len(password) != len(password1):
         lcd.lcd_display_string("Press password:", 1)
-    if len(password)==1:
+
+    if len(password) == 1:
         lcd.lcd_display_string("*", 2)
     if len(password) == 2:
         lcd.lcd_display_string("**", 2)
-    if len(password)==3:
+    if len(password) == 3:
         lcd.lcd_display_string("***", 2)
+
 
     if len(password) == len(password1):
         if password == password1:
@@ -33,6 +35,7 @@ def key_pressed(key):
             print("Access granted")
             lcd.lcd_display_string("Access granted  ")
             servo.set_servo_position(90)
+            return True
         elif password == password2:
             print("Access granted  ")
             servo.set_servo_position(90)
@@ -45,7 +48,6 @@ def key_pressed(key):
         else:
             lcd.lcd_display_string("Access denied  ")
         password.clear()
-
 
 def test():
 

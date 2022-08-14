@@ -25,7 +25,6 @@ def main():
     lcd.lcd_display_string("Press password",1)
     lcd.lcd_display_string("or keycard:",2)
     time.sleep(2)
-    servo.init()
     intruder_detected.alarmstart()
     keypad.test()
     RFID.test()
