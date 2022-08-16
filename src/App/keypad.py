@@ -4,6 +4,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'hal'))
 import hal_keypad as keypad
 import hal_servo as servo
 import hal_lcd as LCD
+import passcheck as passwordfile
 from threading import Thread
 
 import time
@@ -30,32 +31,41 @@ def key_pressed(key):
 
 
     if len(password) == len(password1):
-        if password == password1:
+        if  passwordfile.test_password1(password) == True:
             lcd.lcd_clear()
             print("Access granted")
             lcd.lcd_display_string("Access granted  ")
             servo.set_servo_position(90)
-            return True
-        elif password == password2:
+            password.clear()
+        elif passwordfile.test_password2(password) == True:
             print("Access granted  ")
             lcd.lcd_display_string("Access granted  ")
             servo.set_servo_position(90)
-            return True
-        elif password == password3:
+            password.clear()
+        elif passwordfile.test_password3(password) == True:
             print("Access granted  ")
             lcd.lcd_display_string("Access granted  ")
             servo.set_servo_position(90)
-            return True
-        elif password == password4:
+            password.clear()
+        elif passwordfile.test_password4(password) == True:
             print("Access granted  ")
             lcd.lcd_display_string("Access granted  ")
             servo.set_servo_position(90)
-            return True
+            password.clear()
         else:
             lcd.lcd_display_string("Access denied  ")
-            return "Fail"
-        password.clear()
-
+            password.clear()
+def pytestkeypad(arr):
+    if arr == password1:
+        return True
+    elif password == password2:
+        return True
+    elif password == password3:
+        return True
+    elif password == password4:
+        return True
+    else:
+        return False
 def test():
 
     keypad.init(key_pressed)
